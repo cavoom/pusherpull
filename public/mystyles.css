@@ -1,0 +1,28 @@
+/* Fields */
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    #aaa;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #aaa;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #aaa;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    #aaa;
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+   color:    #aaa;
+}
+/* Button */
+div.wpforms-container-full .wpforms-form input[type=submit], div.wpforms-container-full .wpforms-form button[type=submit], div.wpforms-container-full .wpforms-form .wpforms-page-button {
+   background-color: #00C5BE;
+   border: none;
+   color: #fff;
+   font-size: 1em;
+   padding: 10px 50px;
+   text-transform: uppercase;
+   font-weight: normal;
+}

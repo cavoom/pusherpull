@@ -1,0 +1,5 @@
+the index.html file has the CDN css file and javascript references copied
+too many times (top and bottom)
+
+Also, mystyles.css doesn't have any affect 
+
