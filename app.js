@@ -17,7 +17,9 @@ app.use(bodyParser.urlencoded({extended: false}));
 // Enable CORS
 app.use(cors());
 
-app.use('./poll', poll);
+// This was my error - had ./poll instead of /poll
+// it as looking for localhost:3000./poll?? dunno
+app.use('/poll', poll);
 
 const port = 3000;
 
