@@ -1,5 +1,12 @@
-the index.html file has the CDN css file and javascript references copied
-too many times (top and bottom)
+Open with node app.js from Root
+Open browser to localhost:3000
+indes.html in public has the chart and from
+main.js in public handles the event listener and charting
 
-Also, mystyles.css doesn't have any affect 
+Command T for Terminal
+I have added this to Git at cavoom/pusherpull
+Option Command J for Javascript Console
+
+
+
 
