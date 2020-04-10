@@ -2,7 +2,7 @@ const form = document.getElementById('vote-form');
 // I couldn't get data.os to work in the charts section below
 // I created an osSelection object here to save it myself
 
-var osSelection = {os: "No Selection"};
+var osSelection = {os: "No Selection"}
 
 // form submit event
 form.addEventListener('submit', (e) => {

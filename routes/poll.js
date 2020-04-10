@@ -25,21 +25,13 @@ router.get('/', (req,res) => {
 });
 
 router.post('/', (req,res) =>{
-//console.log('REQUESTED: ', req.body);
+//BROKEN: req.body.os is NULL
+// I have placed a dummy value in here;
 // Save vote to Mongo DB
   const newVote = {
-    os: req.body.os,
+    os: 'Express setup problem - should be req.body.os - but it is null in poll.js',
     points: 1
   };
-  
-  // FOR TEST because req.body is null
-  // const newVote = {
-  //   os: "Windows",
-  //   points: 1
-  // };
-
-
-
 
 // Saves vote and then calls Pusher
   new Vote(newVote).save().then(vote => {
@@ -54,4 +46,3 @@ router.post('/', (req,res) =>{
 });
 
 module.exports = router;
-
