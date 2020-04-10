@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
-// const mongoose = require('mongoose');
+const mongoose = require('mongoose');
+
+const Vote = require('../models/Vote.js');
 
 // const Vote = require('../models/Vote);
 
@@ -23,15 +25,33 @@ router.get('/', (req,res) => {
 });
 
 router.post('/', (req,res) =>{
+//console.log('REQUESTED: ', req.body);
+// Save vote to Mongo DB
+  const newVote = {
+    os: req.body.os,
+    points: 1
+  };
+  
+  // FOR TEST because req.body is null
+  // const newVote = {
+  //   os: "Windows",
+  //   points: 1
+  // };
+
+
+
+
+// Saves vote and then calls Pusher
+  new Vote(newVote).save().then(vote => {
     pusher.trigger('os-poll', 'os-vote', {
-        points: 1,
-        os: req.body.os
-      });
-      //console.log('said thanks for voting');
+    points: parseInt(vote.points),
+    os: vote.os
+  });
 
-      return res.json({ success: true, message: 'Thanks for voting'});
 
-})
-//console.log('at Poll.js and have ',router);
+  return res.json({success: true, message: 'Thanks for voting'});
+  });
+});
+
 module.exports = router;
 
