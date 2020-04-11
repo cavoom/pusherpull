@@ -14,15 +14,6 @@ MongoDB mLab Database
 user: dave
 pass: $Bigdog54
 
-
-// THE PROBLEMS
-When I go to /routes/poll.js
-router.post()
-The req.body is null
-I can see the points
-Just can't get the selection
-So do I just need to save at main.js where i do have it?
-
-Temp fix: At poll.js, I auto set the os save value to "Windows" for now
-
+// STUCK
+Try going to /routes/poll.js and see if we can send the vote.os back to javascript console.
 
