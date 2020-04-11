@@ -15,5 +15,6 @@ user: dave
 pass: $Bigdog54
 
 // STUCK
-Try going to /routes/poll.js and see if we can send the vote.os back to javascript console.
+/routes/poll.js is set to "windows" instead of req.body.os which is null
+We are on Video 3 pusher real time polling app, Traversy Media, Part 3, at 12:19
 

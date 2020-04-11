@@ -1,6 +1,7 @@
 const form = document.getElementById('vote-form');
 // I couldn't get data.os to work in the charts section below
 // I created an osSelection object here to save it myself
+var event;
 
 var osSelection = {os: "No Selection"}
 
@@ -10,21 +11,27 @@ form.addEventListener('submit', (e) => {
     const data = {os: choice};
     osSelection.os = data.os;
 
+    // POST request
     fetch('http://localhost:3000/poll', {
         method: 'post',
-        body: data,
+        body: JSON.stringify(data),
         header: new Headers({
             'Content-Type': 'application/json'
         })
     })
     .then(res => res.json())
-    .then(data => console.log('EVENT LISTENER: ',data))
+    //.then(data => console.log('EVENT LISTENER: ',data))
     .catch(err=> console.log(err));
 
     e.preventDefault();
 });
 
-
+// GET request to pull from the database
+fetch('http://localhost:3000/poll')
+.then(res=>res.json())
+.then(data=>{
+    console.log(data);
+})
 // canvas.js for charting
 let dataPoints = [
     {label: 'Windows', y: 0},
