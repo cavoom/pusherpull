@@ -12,7 +12,7 @@ form.addEventListener('submit', (e) => {
 
     fetch('http://localhost:3000/poll', {
         method: 'post',
-        body: JSON.stringify(data),
+        body: data,
         header: new Headers({
             'Content-Type': 'application/json'
         })
@@ -53,7 +53,7 @@ if(chartContainer){
     chart.render();
 
 // Enable pusher logging - don't include this in production
-//Pusher.logToConsole = true;
+// Pusher.logToConsole = true;
 
 var pusher = new Pusher('d8f1ab915ef59863b905', {
   cluster: 'us2',
@@ -63,12 +63,13 @@ var pusher = new Pusher('d8f1ab915ef59863b905', {
 
 var channel = pusher.subscribe('os-poll');
 channel.bind('os-vote', function(data) {
-    //console.log('THE POINTS DATA: ', data);
-  dataPoints = dataPoints.map(x=>{
-      //console.log(x.label,wildStuff.os);
 
-      if(x.label == osSelection.os){
+  dataPoints = dataPoints.map(x=>{
+
+      //if(x.label == data.os){
+    if(x.label == osSelection.os){
           x.y += data.points;
+          data.os = osSelection.os;
           return x;
       } else {
 

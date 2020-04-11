@@ -21,7 +21,7 @@ var pusher = new Pusher({
 
 router.get('/', (req,res) => {
     res.send('POLL');
-    //console.log('sent POLL');
+    //console.log('ROUTER GET: ', req.body);
 });
 
 router.post('/', (req,res) =>{
@@ -29,7 +29,7 @@ router.post('/', (req,res) =>{
 // I have placed a dummy value in here;
 // Save vote to Mongo DB
   const newVote = {
-    os: 'Express setup problem - should be req.body.os - but it is null in poll.js',
+    os: 'Windows',
     points: 1
   };
 

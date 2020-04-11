@@ -1,0 +1,1 @@
+console.log(document.getElementById("theGoodStuff").innerHTML = localStorage.getItem("key");
