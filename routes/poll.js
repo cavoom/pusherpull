@@ -41,7 +41,7 @@ router.post('/', (req,res) =>{
   });
 
 
-  return res.json({success: true, message: 'Thanks for voting'});
+  return res.json({success: true, message: 'Thanks for voting for '});
   });
 });
 

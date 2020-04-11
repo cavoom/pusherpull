@@ -14,5 +14,6 @@ MongoDB mLab Database
 user: dave
 pass: $Bigdog54
 
-
+// STUCK
+Try going to /routes/poll.js and see if we can send the vote.os back to javascript console.
 
