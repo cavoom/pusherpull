@@ -18,30 +18,23 @@ var pusher = new Pusher({
   encrypted: true
 });
 
-// This is going to fetch the votes database and return the votes array from Mongoose
-router.get('/', (req,res) => {
-  Vote.find().then(votes=> res.json({success: true,votes: votes}))
+router.get('/', (req, res) => {
+  Vote.find().then(votes => res.json({ success: true, votes: votes }));
 });
 
-// This one gets the vote and stores it
-router.post('/', (req,res) =>{
-//BROKEN: req.body.os is NULL
-// I have placed a dummy value in here;
-// Save vote to Mongo DB
+router.post('/', (req, res) => {
   const newVote = {
-    os: 'Linux',
+    os: req.body.os,
     points: 1
   };
 
-// Saves vote and then calls Pusher
   new Vote(newVote).save().then(vote => {
     pusher.trigger('os-poll', 'os-vote', {
-    points: parseInt(vote.points),
-    os: vote.os
-  });
+      points: parseInt(vote.points),
+      os: vote.os
+    });
 
-
-  return res.json({success: true, message: 'Thanks for voting'});
+    return res.json({ success: true, message: 'Thank you for voting' });
   });
 });
 
